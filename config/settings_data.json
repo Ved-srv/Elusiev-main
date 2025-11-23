@@ -146,18 +146,11 @@
       },
       "footer": {
         "type": "footer",
-        "blocks": {
-          "762130ce-c112-474e-ab41-0e908f95e578": {
-            "type": "social_media",
-            "settings": {
-              "icons": false
-            }
-          }
-        },
-        "block_order": [
-          "762130ce-c112-474e-ab41-0e908f95e578"
-        ],
-        "settings": {}
+        "blocks": {},
+        "block_order": [],
+        "settings": {
+          "color_scheme": "scheme-1"
+        }
       },
       "newsletter-popup": {
         "type": "newsletter-popup",
