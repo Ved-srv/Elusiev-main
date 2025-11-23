@@ -1,0 +1,266 @@
+{%- render 'css', css: 'section-footer.css', section_index: section.index -%}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} > div {
+    padding-block-start: calc(var(--section-spacing-unit-size) * {{ section.settings.spacing_top }});
+    padding-block-end: calc(var(--section-spacing-unit-size) * {{ section.settings.spacing_bottom }});
+  }
+  
+  #shopify-section-{{ section.id }} .footer-redesign {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+  }
+  
+  #shopify-section-{{ section.id }} .footer-column h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: rgba(var(--color-foreground), 1);
+  }
+  
+  #shopify-section-{{ section.id }} .footer-about-text {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: rgba(var(--color-foreground), 0.85);
+  }
+  
+  #shopify-section-{{ section.id }} .footer-contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    font-size: 1.5rem;
+  }
+  
+  #shopify-section-{{ section.id }} .footer-contact-info a {
+    color: rgba(var(--color-foreground), 0.85);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  #shopify-section-{{ section.id }} .footer-links-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  #shopify-section-{{ section.id }} .footer-links-list a {
+    color: rgba(var(--color-foreground), 0.85);
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: color 0.2s;
+  }
+  
+  #shopify-section-{{ section.id }} .footer-links-list a:hover {
+    color: rgba(var(--color-foreground), 1);
+  }
+  
+  @media screen and (max-width: 989px) {
+    #shopify-section-{{ section.id }} .footer-redesign {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+  #shopify-section-{{ section.id }} hr {
+  border: none;
+  height: 1px;
+  background-color: #CA9567;
+  margin: 0;
+}
+{%- endstyle -%}
+<hr>
+<div class="footer color-{{ section.settings.color_scheme }} gradient">
+  <div class="footer-redesign container {{ section.settings.section_width }}">
+    
+    <!-- About Us Column -->
+    <div class="footer-column footer-about">
+      <h3>About Us</h3>
+      <p class="footer-about-text">
+        Elusiev is more than a perfume store, it is a curator of fragrances, experiences, and knowledge. We handpick authentic perfumes from French classics to Middle Eastern treasures, chosen for their story and artistry. Beyond curation, we focus on fragrance education, helping enthusiasts learn how perfumes are crafted, how to wear them, and when to choose the right scent. Our ethos is built on transparency, tasteful selection, and premium accessibility, ensuring original products without inflated markups. Inspired by the elusive nature of scent, Elusiev seeks to redefine perfume buying in India with immersive guides, expert insights, and a culture of learning.
+      </p>
+      <div class="footer-contact-info">
+        <a href="tel:{{ section.settings.phone }}">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328z"/>
+          </svg>
+          {{ section.settings.phone | default: "03 9332 5207" }}
+        </a>
+        <a href="mailto:{{ section.settings.email }}">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
+          </svg>
+          {{ section.settings.email | default: "CS@mystore.com.au" }}
+        </a>
+        <a href="https://maps.google.com/?q={{ section.settings.address | url_encode }}" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+          </svg>
+          {{ section.settings.address | default: "92 Forsyth St, Sydney, NSW" }}
+        </a>
+      </div>
+    </div>
+    
+    <!-- Information Column -->
+    <div class="footer-column footer-information">
+      <h3>Information</h3>
+      <ul class="footer-links-list">
+        {%- for link in section.settings.information_menu.links -%}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {%- endfor -%}
+      </ul>
+    </div>
+    
+    <!-- FAQs Column -->
+    <div class="footer-column footer-faqs">
+      <h3>FAQs</h3>
+      <ul class="footer-links-list">
+        {%- for link in section.settings.faqs_menu.links -%}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {%- endfor -%}
+      </ul>
+    </div>
+    
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Footer",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Contact Information"
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Phone Number",
+      "default": "+91-8795546522"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email Address",
+      "default": "support@elusiev.com"
+    },
+    {
+      "type": "text",
+      "id": "address",
+      "label": "Address",
+      "default": "Vasundhra Enclave, Delhi"
+    },
+    {
+      "type": "header",
+      "content": "Navigation Menus"
+    },
+    {
+      "type": "link_list",
+      "id": "information_menu",
+      "label": "Information Menu",
+      "default": "footer"
+    },
+    {
+      "type": "link_list",
+      "id": "faqs_menu",
+      "label": "FAQs Menu"
+    },
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "options": [
+        {
+          "value": "max-w-page",
+          "label": "Page Width"
+        },
+        {
+          "value": "max-w-fluid",
+          "label": "Full Width"
+        }
+      ],
+      "default": "max-w-page",
+      "label": "Section Width"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "default": "scheme-2",
+      "label": "Color Scheme"
+    },
+    {
+      "type": "select",
+      "id": "spacing_top",
+      "label": "Spacing Top",
+      "options": [
+        {
+          "value": "0",
+          "label": "No"
+        },
+        {
+          "value": "1",
+          "label": "S"
+        },
+        {
+          "value": "2",
+          "label": "M"
+        },
+        {
+          "value": "4",
+          "label": "L"
+        },
+        {
+          "value": "6",
+          "label": "XL"
+        }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "select",
+      "id": "spacing_bottom",
+      "label": "Spacing Bottom",
+      "options": [
+        {
+          "value": "0",
+          "label": "No"
+        },
+        {
+          "value": "1",
+          "label": "S"
+        },
+        {
+          "value": "2",
+          "label": "M"
+        },
+        {
+          "value": "4",
+          "label": "L"
+        },
+        {
+          "value": "6",
+          "label": "XL"
+        }
+      ],
+      "default": "2"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Footer"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,49 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "footer_JadcgE": {
+      "type": "footer",
+      "settings": {
+        "phone": "+91-8795546522",
+        "email": "support@elusiev.com",
+        "address": "Vasundhra Enclave, Delhi",
+        "information_menu": "footer",
+        "faqs_menu": "faq-menu",
+        "section_width": "max-w-page",
+        "color_scheme": "scheme-e5836ac4-7147-42db-ad9b-edcd66ab517a",
+        "spacing_top": "0",
+        "spacing_bottom": "1"
+      }
+    },
+    "social_icons_thnrGd": {
+      "type": "social-icons",
+      "name": "Social Icons",
+      "settings": {
+        "heading": "Follow Us",
+        "icon_size": 32,
+        "instagram_url": "https://www.instagram.com/elusiev.shop?igsh=Z3QxNHFjNDRldWo3",
+        "youtube_url": "https://youtube.com/@elusiev-shop?si=iG7ODxgiZjn0G1li",
+        "pinterest_url": "https://pin.it/KSlkN0wnv",
+        "facebook_url": "",
+        "twitter_url": "https://x.com/elusiev_shop",
+        "color_scheme": "scheme-e5836ac4-7147-42db-ad9b-edcd66ab517a",
+        "spacing_top": "1",
+        "spacing_bottom": "2"
+      }
+    }
+  },
+  "order": [
+    "footer_JadcgE",
+    "social_icons_thnrGd"
+  ]
+}
